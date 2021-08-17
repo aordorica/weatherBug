@@ -6,12 +6,17 @@ body {
     padding: 0 16px;
 
     display: flex;
+    justify-content: center;
     flex-direction: column;
     min-height: 100vh;
 }
 
 .main-content {
     flex-grow: 1;
+}
+
+.main-content p {
+    color: #888888;
 }
 
 footer {

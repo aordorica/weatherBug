@@ -6,6 +6,9 @@ const request = require('postman-request');
 const forecast = require('./utils/forecast');
 const gecode = require('./utils/geocode')
 
+// Define default port to for deployment
+const port = process.env.PORT || 3000
+
 //Define Path for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsDirectoryPath = path.join(__dirname, '../templates/views')
@@ -86,6 +89,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Express server is up and running!');
 })

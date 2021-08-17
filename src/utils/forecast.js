@@ -1,16 +1,16 @@
-require('dotenv/config')
-const request = require('postman-request');
-const { env } = require('process');
+require("dotenv/config");
+const request = require("postman-request");
+const { env } = require("process");
 
-const iconURL = ''
+const iconURL = "";
 
 const forecast = (latitude, longitude, callback) => {
     const url = `http://api.weatherstack.com/current?access_key=${env.WEATHERSTACK_API_KEY}&query=${latitude},${longitude}&units=f`;
-    request({url, json: true}, (error, { body } = {}) => {
-        if(error) {
-            callback('Unable to connect to weather services!')
-        } else if(body.error) {
-            callback('Unable to find location. Please try another search.')
+    request({ url, json: true }, (error, { body } = {}) => {
+        if (error) {
+            callback("Unable to connect to weather services!");
+        } else if (body.error) {
+            callback("Unable to find location. Please try another search.");
         } else {
             callback(
                 undefined,
@@ -18,7 +18,7 @@ const forecast = (latitude, longitude, callback) => {
                 body.current.weather_icons[0]
             );
         }
-    })
-}
+    });
+};
 
-module.exports = forecast
+module.exports = forecast;

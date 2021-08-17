@@ -2,6 +2,7 @@ require('dotenv/config')
 const request = require('postman-request');
 const { env } = require('process');
 
+const iconURL = ''
 
 const forecast = (latitude, longitude, callback) => {
     const url = `http://api.weatherstack.com/current?access_key=${env.WEATHERSTACK_API_KEY}&query=${latitude},${longitude}&units=f`;
@@ -13,7 +14,8 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             callback(
                 undefined,
-                `It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out.`
+                `It is currently ${body.current.weather_descriptions} with a temperature of ${body.current.temperature}°. It feels like ${body.current.feelslike}° out.`,
+                body.current.weather_icons[0]
             );
         }
     })

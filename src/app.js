@@ -25,7 +25,7 @@ app.use(express.static(path.join(publicDirectoryPath)))
 //Define page routing
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
+        title: 'WeatherBug',
         name: 'Alan Ordorica'
     })
 })
